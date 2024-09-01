@@ -5,8 +5,7 @@ const atividades = [];
 const notas = [];
 const spanAprovado = '<span class="resultado aprovado">aprovado</span>';
 const spanReprovado = '<span class="resultado reprovado">reprovado</span>';
-const notaMinima = parseFloat(prompt("digite a nota minima:"));
-
+const notaMinima = parseFloat(prompt("Digite a nota mínima:"));
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -19,25 +18,21 @@ function adicionarLinha() {
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
-    if(atividades.includes(inputNomeAtividade.value)) {
+    if (atividades.includes(inputNomeAtividade.value)) {
         alert(`A atividade: ${inputNomeAtividade.value} já foi inserida`);
     } else {
         atividades.push(inputNomeAtividade.value);
-    notas.push(parseFloat(inputNotaAtividade.value)); // Converte a string para número
+        notas.push(parseFloat(inputNotaAtividade.value)); // Converte a string para número
 
-    let linha = '<tr>';
-    linha += `<td>${inputNomeAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value}</td>`;
-    linha += `<td><img src="${parseFloat(inputNotaAtividade.value) >= notaMinima ? spanAprovado : spanReprovado}" alt="${parseFloat(inputNotaAtividade.value) >= 7 ? 'Aprovado' : 'Reprovado'}"></td>`;
-    linha += '</tr>';
+        let linha = '<tr>';
+        linha += `<td>${inputNomeAtividade.value}</td>`;
+        linha += `<td>${inputNotaAtividade.value}</td>`;
+        linha += `<td><img src="${parseFloat(inputNotaAtividade.value) >= notaMinima ? imgAprovado : imgReprovado}" alt="${parseFloat(inputNotaAtividade.value) >= notaMinima ? 'Aprovado' : 'Reprovado'}"></td>`;
+        linha += '</tr>';
 
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML += linha;
-
-    linhas +- linha;
+        const corpoTabela = document.querySelector('tbody');
+        corpoTabela.innerHTML += linha;
     }
-
-  
 }
 
 function atualizaMediaFinal() {
